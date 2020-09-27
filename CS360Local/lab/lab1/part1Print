@@ -1,0 +1,12 @@
+     Start  #Sectors  SysType
+      18      342        7
+     360      360       83
+     720      720        c
+    1440     1440        5
+P4 start_sector = 1440
+FIRST entry of localMBR
+start_sector = 18, nsector = 342
+start_sector    nsectors    ID
+      18          342        6
+       1          522       82
+       1          522       83

@@ -1,0 +1,149 @@
+enter main
+&argc=fff25f00 argv=fff25f94 env=fff25fa8
+4      (null)
+3      three
+2      two
+1      one
+0      ./a.out
+&a=fff25ec0 &b=fff25ec4 &c=fff25ec8
+enter A
+&d=fff25e80 &e=fff25e84 &f=fff25e88
+enter B
+&g=fff25e50 &h=fff25e54 &i=fff25e58
+enter C
+&u=fff25e14 &v=fff25e18 &w=fff25e1c, &i=fff25e20, &p=fff25e24
+FP = fff25e38
+stack link list:
+fff25e38 ->fff25e68 ->fff25e98 ->fff25ee8 ->NULL
+stack content:
+fff25e14          a  u = 10
+fff25e18          b  v = 11
+fff25e1c          c  w = 12
+fff25e20          d  i = 13
+fff25e24   fff25e24  &p
+fff25e28          5
+fff25e2c   5e449700
+fff25e30   fff25f00
+fff25e34   56648fd0
+fff25e38   fff25e68  Fp *FP
+fff25e3c   566463ef
+fff25e40          7
+fff25e44          8
+fff25e48   fff25e54
+fff25e4c   fff25e58
+fff25e50          7  g = 7
+fff25e54          8  h = 8
+fff25e58          9  i = 9
+fff25e5c   5e449700
+fff25e60   fff25f00
+fff25e64   56648fd0
+fff25e68   fff25e98  Fp *FP
+fff25e6c   56646350
+fff25e70   4
+fff25e74   5
+fff25e78   fff25e84
+fff25e7c   fff25e88
+fff25e80   4  d = 4
+fff25e84   5  e = 5
+fff25e88   6  f = 6
+fff25e8c   5e449700
+fff25e90   fff25f00
+fff25e94   56648fd0
+fff25e98   fff25ee8  Fp *FP
+fff25e9c   566462a7
+fff25ea0   1
+fff25ea4   2
+fff25ea8   fff25ec4
+fff25eac   fff25ec8
+fff25eb0   f7f6f000
+fff25eb4   f7f9c2d0
+fff25eb8   fff25fa8
+fff25ebc   fff25f94
+fff25ec0          1  a = 1
+fff25ec4          2  b = 2
+fff25ec8          3  c = 3
+fff25ecc   5e449700
+fff25ed0          4
+fff25ed4   fff25f94
+fff25ed8   fff25fa8
+fff25edc   fff25f00
+fff25ee0          0
+fff25ee4   f7f6f000
+fff25ee8          0  
+fff25eec   f7da6ee5
+fff25ef0   f7f6f000
+fff25ef4   f7f6f000
+fff25ef8   0
+fff25efc   f7da6ee5
+fff25f00   ffffffff  argc = 4
+fff25f04   fff25f94  argv
+fff25f08   fff25fa8  env
+fff25f0c   fff25f24
+fff25f10   f7f6f000
+fff25f14   f7fb7000
+fff25f18   fff25f78
+fff25f1c   0
+fff25f20   f7fb7990
+fff25f24   0
+fff25f28   f7f6f000
+fff25f2c   f7f6f000
+fff25f30   0
+fff25f34   2866694a
+fff25f38   78052f5a
+fff25f3c   0
+fff25f40   0
+fff25f44   0
+fff25f48   0
+fff25f4c   0
+fff25f50   0
+fff25f54   0
+fff25f58   f7f9c17d
+fff25f5c   56648fd0
+fff25f60   4
+fff25f64   56646090
+fff25f68   0
+fff25f6c   566460c5
+fff25f70   566461cd
+fff25f74   4
+fff25f78   fff25f94
+fff25f7c   56646590
+fff25f80   56646600
+fff25f84   f7f9c2d0
+fff25f88   fff25f8c
+fff25f8c   1c
+fff25f90   4
+fff25f94   fff27366
+fff25f98   fff2736e
+fff25f9c   fff27372
+fff25fa0   fff27376
+fff25fa4   0
+fff25fa8   fff2737c
+fff25fac   fff2738c
+fff25fb0   fff273fe
+fff25fb4   fff27411
+fff25fb8   fff27425
+fff25fbc   fff27452
+fff25fc0   fff27469
+fff25fc4   fff27495
+fff25fc8   fff274a8
+fff25fcc   fff274bb
+fff25fd0   fff274db
+fff25fd4   fff27504
+fff25fd8   fff27518
+fff25fdc   fff2752f
+fff25fe0   fff27542
+fff25fe4   fff2755e
+fff25fe8   fff2757c
+fff25fec   fff275af
+fff25ff0   fff275c3
+fff25ff4   fff275de
+fff25ff8   fff275f3
+fff25ffc   fff27627
+fff26000   fff27650
+fff26004   fff2765d
+fff26008   fff27674
+fff2600c   fff27689
+fff26010   fff2769b
+exit B
+exit A
+exit main

@@ -1,0 +1,42 @@
+//Part 1
+(A) 
+Case  | a.out   |  TEXT     |  DATA     |  BSS   |
+----------------------------------------------------
+(1)   |15596    |1679       |304        |8       |
+--------------------------------------------------
+(2)   |15600    |1679       |308        |4       |  
+-----------------------------------------------------
+(3)   |15596    |1679       |304        |40032   |
+-------------------------------------------------
+(4)   |55620    |1679       |40328      |4       |
+---------------------------------------------------
+(5)   |15680    |1927       |308        |8       |
+---------------------------------------------------        
+(6)   |15688    |1695       |304        |40068   |
+--------------------------------------------------
+1. Which variables are in DATA: g(t2, t4), d(t5)
+   Which variables are in BSS: a(t6), b(t6), c(t6), g(t1, t3, t5, t6), d(t6)
+2. TEXT and DATA are in a.out file but BSS is not. BSS section sotres uninitialized 
+    global and stastic local variables. Only size of it is recored in a.out file
+    TEXT section contains the executable code for the program and a.out uses it when
+    running the program. DATA section contains the initialized global and stastic local.
+    a.out recored them too.
+(B)
+Case  | a.out   |  TEXT     |  DATA     |  BSS   |
+----------------------------------------------------
+(1)   |704920   |622869     |11224      |3408    |
+--------------------------------------------------
+(2)   |704920   |622869     |11224      |3408    |  
+-----------------------------------------------------
+(3)   |704920   |622869     |11224      |43408   |
+-------------------------------------------------
+(4)   |744920   |622869     |51256      |3408    |
+---------------------------------------------------
+(5)   |704920   |622933     |11224      |3408    |
+---------------------------------------------------        
+(6)   |705012   |62285      |11224      |43440   |
+--------------------------------------------------
+The overall size of a.out file increases dramtically.
+The reason is that a.out here uses static link library instead
+of dynamic link. It loads everything from library and the size
+increases.
