@@ -1,0 +1,9 @@
+i=0 cmd=/usr/local/sbin/ls
+i=1 cmd=/usr/local/bin/ls
+i=2 cmd=/usr/sbin/ls
+i=3 cmd=/usr/bin/ls
+2.txt
+t.c
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdhujkfghsdylfgyuoasdfgyuahsgbfyhujgbuolvgbuwegfvbywegbolawgwgyyhuwgefuolyhbgwefuwgf
+//ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

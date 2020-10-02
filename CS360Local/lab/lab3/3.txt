@@ -1,0 +1,15 @@
+i=0 cmd=/usr/local/sbin/ls
+i=1 cmd=/usr/local/bin/ls
+i=2 cmd=/usr/sbin/ls
+i=3 cmd=/usr/bin/ls
+t.c
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdhujkfghsdylfgyuoasdfgyuahsgbfyhujgbuolvgbuwegfvbywegbolawgwgyyhuwgefuolyhbgwefuwgf
+//ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+i=0 cmd=/usr/local/sbin/cat
+i=1 cmd=/usr/local/bin/cat
+i=2 cmd=/usr/sbin/cat
+i=3 cmd=/usr/bin/cat
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdhujkfghsdylfgyuoasdfgyuahsgbfyhujgbuolvgbuwegfvbywegbolawgwgyyhuwgefuolyhbgwefuwgf
+//ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
