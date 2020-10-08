@@ -20,16 +20,18 @@ char *name[64];
 int ntoken = 0;
 char *home;
 
-void runCmd(char *cmd, char **env, int r)
+void runCmd(char *cmdName[],char **env,char cmd[64])
 {
+  int r;
   for (int x = 0; x < ndir; x++)
-    {
-      strcpy(cmd, dir[x]);
-      strcat(cmd, "/");
-      strcat(cmd, name[0]);
-      printf("i=%d cmd=%s\n", x, cmd);
-      r = execve(cmd, name, env);
-    }
+  {
+    strcpy(cmd, dir[x]);
+    strcat(cmd, "/");
+    strcat(cmd, cmdName[0]);
+    printf("i=%d cmd=%s\n", x, cmd);
+    r = execve(cmd,cmdName,env);
+  }
+  //free(cmd);
 }
 
 int reDic()
@@ -71,63 +73,64 @@ int reDic()
  parent write to  pipe and exec head;
  child  read from pipe and exec tail
 ********************************************/
-void processPipe(char *cmd1, char *cmd2, char **env)
+void processPipe(char *head[], char *tail[], char **env, char *cmd)
 {
   int pid;
   int pd[2];
-  int r;
   pipe(pd);     // creates a PIPE
   pid = fork(); // fork a child (to share the PIPE)
   if (pid)
-  {                          // parent as pipe WRITER
+  {               
+    printf("Executing head\n");// parent as pipe WRITER
     close(pd[0]);            // WRITER MUST close pd[0]
     close(1);                // close 1
-    dup(pd[1]);              // replace 1 with pd[1]
+    dup(pd[1]);            // replace 1 with pd[1]
     close(pd[1]);            // close pd[1]
-    runCmd(cmd1, env, r); // change image to cmd1
+    runCmd(head,env,cmd); // change image to cmd1
+    free(cmd);
   }
   else
-  {               // child as pipe READER
+  {       
+    printf("Executing tail\n");        // child as pipe READER
     close(pd[1]); // READER MUST close pd[1]
     close(0);
-    dup(pd[0]);              // replace 0 with pd[0]
-    close(pd[0]);            // close pd[0]
-    runCmd(cmd2, env, r); // change image to cmd2
+    dup(pd[0]);             // replace 0 with pd[0]
+    close(pd[0]);          // close pd[0]
+    runCmd(tail,env,cmd); // change image to cmd2
+    free(cmd);
   }
 }
 
-void handlePipe(char *cmd1[128], char *cmd2[128], int symbolInd, char **env)
+void handlePipe(char* cmd, char *cmd1[], char *cmd2[], int symbolInd, char **env)
 {
   int i = 0, j = 0, k = 0;
 
   //get head
+  printf("Head:");
   while (i < symbolInd)
   {
+    printf("%s ", name[i]);
     cmd1[j++] = name[i++];
   }
-
+  printf("\n");
   //get tail
   i++;
-
-  printf("-----------------------");
+  printf("-----------------------\n");
+  printf("Tail:");
   while (name[i])
   {
-    cmd2[k] = name[i];
-    k++;
-    i++;
+    printf("%s ", name[i]);
+    cmd2[k++] = name[i++];
   }
+  printf("\n");
 
-  processPipe(cmd1, cmd2, env);
-  free(cmd1);
-  free(cmd2);
+  processPipe(cmd1,cmd2,env,cmd);
 }
 
-void processCmd(char **env, int pid, int status, int r)
+void processCmd(char *env[], int pid, int status, char* cmd)
 {
   int ifPipe = 0, symbolIndex;
-  char *head[128], *tail[218];
-  char *cmd;
-  // 4. name[0] is not cd or exit:
+  char *head[128], *tail[128];
   // check if there is pipe symbol
   for (int i = 0; name[i]; i++)
   {
@@ -152,19 +155,16 @@ void processCmd(char **env, int pid, int status, int r)
     printf("Enter child process:\n");
     printf("child sh %d begins\n", getpid());
     printf("NDIR: %d\n", ndir);
-    if(ifPipe)
+    if(ifPipe!=0)
     {
-      printf("Checking if cmd is pipe:\n");
-      handlePipe(head, tail, symbolIndex, env);
+      printf("Handling if cmd is pipe:\n");
+      handlePipe(cmd, head, tail, symbolIndex, env);
     }
     reDic();
-    runCmd(cmd,env,r);
+    runCmd(name,env,cmd);
     printf("cmd %s not found, child sh exit\n", name[0]);
     exit(123); // die with value 123
   }
-  free(head);
-  free(tail);
-  free(cmd);
 }
 
 
@@ -275,7 +275,7 @@ int main(int argc, char *argv[], char *env[])
     }
     else
     {
-      processCmd(env, pid, status, r);
+      processCmd(env, pid, status,cmd);
       continue;
     }
   }
